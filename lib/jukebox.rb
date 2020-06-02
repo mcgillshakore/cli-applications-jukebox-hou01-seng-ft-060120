@@ -24,6 +24,7 @@ def list(songs)
   end
 end
 
+<<<<<<< HEAD
 
 def exit_jukebox
   puts "Goodbye"
@@ -42,6 +43,31 @@ def play(songs)
     puts "Invalid input, please try again."
   end
 end
+=======
+def play(songs)
+  puts "Please enter a song name or number:"
+  user_input = gets.strip
+  song_number = user_input.to_i - 1
+  if (0..songs.length) === song_number
+    puts "Playing #{find_song_by_number(songs, song_number)}"
+  elsif songs.include?(user_input)
+    puts "Playing #{user_input}"
+  else
+    puts "Invalid input, please try again"
+  end
+end
+def find_song_by_number(songs, user_input)
+  songs.each_with_index do |song, index|
+    if index == user_input
+      return song
+    end
+  end
+  return nil
+end
+def exit_jukebox
+  puts "Goodbye"
+end
+>>>>>>> 8396e0792b758aad27252756c9954a42e700397f
 
 def run(songs)
   puts "Please enter a command:"
